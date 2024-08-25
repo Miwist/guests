@@ -78,6 +78,8 @@ POST /guests
   "email": "sergey.sergeev@example.com",
   "country": "Россия"
 }
+```
+```ruby
 Пример ответа:
 {
     "status": "Гость успешно создан"
@@ -99,7 +101,7 @@ POST /guests
 * country: (необязательно) Новая страна гостя.
 
 Пример запроса:
-PATCH /guests/
+PATCH /guests/?id=1
 Тело запроса:
 ```ruby
 {
@@ -124,7 +126,8 @@ PATCH /guests/
 * id: ID гостя.
 
 Пример запроса:
-DELETE /guests/1
+DELETE /guests/?id=1
+
 Пример ответа:
 ```ruby
 {
