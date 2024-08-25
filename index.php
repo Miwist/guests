@@ -3,6 +3,13 @@ include "./inc/class.inc.guests.php";
 include "./inc/class.inc.validate.php";
 
 header('Content-Type: application/json');
+
+$executionTime = round(microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"], 3);
+$memoryUsage = memory_get_peak_usage(true) / 1024 / 1024;
+
+header('X-Debug-Time: ' . $executionTime);
+header('X-Debug-Memory: ' . $memoryUsage);
+
 $data = json_decode(file_get_contents('php://input'), true);
 
 $method = $_SERVER['REQUEST_METHOD'];
