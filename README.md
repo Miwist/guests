@@ -20,23 +20,23 @@
 Пример запроса:
 GET /guests 
 Пример ответа:
-[
-  {
-    "id": 1,
-    "first_name": "Иван",
-    "last_name": "Иванов",
-    "phone": "+79123456789",
-    "email": "ivan.ivanov@example.com",
-    "country": "Россия"
-  },
-  {
-    "id": 2,
-    "first_name": "Петр",
-    "last_name": "Петров",
-    "phone": "+79123456790",
-    "email": "petr.petrov@example.com",
-    "country": "Россия"
-  }
+*[
+*  {
+*    "id": 1,
+*   "first_name": "Иван",
+*   "last_name": "Иванов",
+*   "phone": "+79123456789",
+*   "email": "ivan.ivanov@example.com",
+*   "country": "Россия"
+* },
+* {
+*   "id": 2,
+*   "first_name": "Петр",
+*   "last_name": "Петров",
+*   "phone": "+79123456790",
+*   "email": "petr.petrov@example.com",
+*   "country": "Россия"
+* }
 ]
 Пример запроса с id:
 GET /guests?id=1
