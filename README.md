@@ -20,27 +20,30 @@
 Пример запроса:
 GET /guests 
 Пример ответа:
-*[
-*  {
-*    "id": 1,
-*   "first_name": "Иван",
-*   "last_name": "Иванов",
-*   "phone": "+79123456789",
-*   "email": "ivan.ivanov@example.com",
-*   "country": "Россия"
-* },
-* {
-*   "id": 2,
-*   "first_name": "Петр",
-*   "last_name": "Петров",
-*   "phone": "+79123456790",
-*   "email": "petr.petrov@example.com",
-*   "country": "Россия"
-* }
+```ruby
+[
+  {
+    "id": 1,
+    "first_name": "Иван",
+    "last_name": "Иванов",
+    "phone": "+79123456789",
+    "email": "ivan.ivanov@example.com",
+    "country": "Россия"
+ },
+ {
+   "id": 2,
+   "first_name": "Петр",
+   "last_name": "Петров",
+   "phone": "+79123456790",
+   "email": "petr.petrov@example.com",
+   "country": "Россия"
+ }
 ]
+```
 Пример запроса с id:
 GET /guests?id=1
 Пример ответа:
+```ruby
 {
   "id": 1,
   "first_name": "Иван",
@@ -49,6 +52,7 @@ GET /guests?id=1
   "email": "ivan.ivanov@example.com",
   "country": "Россия"
 }
+```
 #### POST
 
 Описание:
@@ -66,6 +70,7 @@ GET /guests?id=1
 Пример запроса:
 POST /guests
 Тело запроса:
+```ruby
 {
   "first_name": "Сергей",
   "last_name": "Сергеев",
@@ -77,7 +82,7 @@ POST /guests
 {
     "status": "Гость успешно создан"
 }
-
+```
 #### PATCH
 
 Описание:
@@ -96,15 +101,18 @@ POST /guests
 Пример запроса:
 PATCH /guests/
 Тело запроса:
+```ruby
 {
   "phone": "+79123456792",
   "email": "ivan.ivanov.new@example.com"
 }
+```
 Пример ответа:
+```ruby
 {
     "status": "Гость успешно Обновлен"
 }
-
+```
 #### DELETE
 
 Описание:
@@ -118,11 +126,11 @@ PATCH /guests/
 Пример запроса:
 DELETE /guests/1
 Пример ответа:
-
+```ruby
 {
     "status": "Гость успешно удален"
 }
-
+```
 ### Ошибки
 
 Статусные коды:
