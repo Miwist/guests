@@ -12,6 +12,7 @@ $last_name = $data['last_name'];
 $email = $data['email'];
 $phone = $data['phone'];
 $country = $data['country'];
+$id = $_GET['id'];
 $bd_connect = new Guests();
 $valid = new Validate();
 
@@ -43,8 +44,7 @@ if (empty($country)) {
 
 switch ($method) {
     case 'GET':
-        if (!empty($_GET['id'])) {
-            $id = $_GET['id'];
+        if (!empty($id)) {
             $guest = $bd_connect->getGuestById($id);
             echo json_encode($guest);
         } else {
@@ -69,7 +69,13 @@ switch ($method) {
         }
         break;
     case 'DELETE':
-        $update_guest = $bd_connect->deleteGuest($id);
+        if (!empty($id)) {
+            $delete_guest = $bd_connect->deleteGuest($id);
+            
+            echo json_encode($delete_guest);
+        } else {
+            echo json_encode(['error' => 'Ошибка при удалении пользователя, не указан ID']);
+        }
         break;
     default:
         echo json_encode(['error' => 'Неподдерживаемый метод']);

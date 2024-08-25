@@ -73,13 +73,16 @@ class Guests
 
     public function deleteGuest($id)
     {
-        $result = pg_query($this->conn, "DELETE FROM guests WHERE id ='$id'");
+        $find_guest = pg_query($this->conn, "SELECT * FROM guests WHERE id ='$id'");
+        $find_guest = pg_fetch_all($find_guest);
 
-        if (!empty($result)) {
-            $data = ['status' => 'Гость успешно удален'];
+        if (empty($find_guest)) {
+            $data = ['error' => 'Гость с таким ID не найден'];
         } else {
-            $data = ['error' => 'Ошибка при удалении гостя'];
+            $result = pg_query($this->conn, "DELETE FROM guests WHERE id ='$id'");
+            $data = ['status' => 'Гость успешно удален'];
         }
+
         return $data;
     }
 
